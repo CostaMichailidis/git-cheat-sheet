@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>git cheat sheet</title>
+    <meta name="description" content="My personal git cheat sheet.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <style type="text/css">
+    html {
+      background: #FEFEFF;
+      box-shadow: 0px 0px 4px #AAA inset;
+      min-height: 100%;
+    }
+    body {
+      max-width: 700px;
+      width: 80%;
+      margin: auto;
+      margin-top: 50px;
+      margin-bottom: 250px;
+      font-family: Georgia;
+      color: #445;
+    }
+    section {
+      margin: 30px 0 50px 0;
+      padding: 40px;
+      box-shadow: 0 0 4px #aaa;
+      border-radius: 5px;
+    }
+    .center {
+      text-align: center;
+    }
+    h1 {
+      font-size: 250%;
+      margin-left: -25px;
+      color: #000;
+      text-shadow: 1px 1px 1px #aaa;
+    }
+    h2 {
+      font-size: 190%;
+      margin-left: -15px;
+      color: #335699;
+      text-shadow: 1px 1px 1px #aaa;
+    }
+    p {
+      margin-bottom: 35px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    code {
+      font-size: 150%;
+      color: #000;
+    }
+    </style>
+  </head>
+  <body>
+
+    <h1 class="right">My personal git cheat sheet</h1>
+    <p class="right">There are so many git commands! These are the ones I make use of...</p>
+    <br>
+
+<!-- Basics -->
+    <h2>Basics</h2>
+    <section>
+      <code><strong>git</strong> init</code>
+      <p>This initializes a git repository in the current directory. Hit <strong>ctrl + h</strong> to see the hidden .git folder.</p>
+
+      <code><strong>vim</strong> .gitignore</code>
+      <p>not a git command obviously, but definitely one of the first things to do. In this file just list out files and directories that git shouldn't worry about. This might include PSD files, user interface junk, or compiled stuff. Directories are denoted by ending with a /</p>
+
+      <code><strong>git</strong> add index.html</code><br>
+      <code><strong>git</strong> add modules/</code><br>
+      <code><strong>git</strong> add index.html about.html modules/</code><br>
+      <code><strong>git</strong> add --all</code><br>
+      <p>Adds new files or modified files, directories, multiple things, or everything including deletes to the staging area, ready to be commited.</p>
+
+      <code><strong>git</strong> commit -m "my commit message"</code>
+      <p>Commits to the repo. Without the <strong>-m "my commit message"</strong>, vim opens up to edit the commit message.</p>
+
+      <code><strong>git</strong> commit --amend -m "my commit message"</code>
+      <p>The <strong>--amend</strong> option overights the last commit. This is useful if you noticed a small error and need to replace your last commit.</p>
+    </section>
+
+
+<!-- Checking Stuff -->
+    <h2>Checking Stuff</h2>
+    <section>
+      <code><strong>git</strong> status</code>
+      <p>Reports the status of your git repository, staging area, remote repos, branches and so on.</p>
+
+      <code><strong>git</strong> diff</code>
+      <p>Check the difference between commits, or between commit and the working tree.</p>
+
+      <code><strong>git</strong> branch</code>
+      <br>
+      <code><strong>git</strong> branch --all</code>
+      <p>Display the local branches and denote the current branch. With the <strong>--all</strong> option it will also display remote branches.</p>
+
+      <code><strong>git</strong> tree</code>
+      <p><strong>git tree</strong> is my custom git log command, which is equivalent to:</p>
+      <code><strong>git</strong> log --all --graph --format=format:'%C(bold blue)%h%C(reset) %C(dim black)%s%C(reset)%C(bold red)%d%C(reset) %C(green)by %an, %ar%C(reset)'</code>
+      <p>This displays the full tree diagram of you git repository, and some useful info like where different branches are at the moment, how your local branches compare to remotes, who authored which  commits, dates and so on.</p>
+
+      <code><strong>git</strong> remote show remoteName</code>
+      <p>Displays info about the remote repository <strong>remoteName</strong>.</p>
+    </section>
+
+<!-- Branches -->
+    <h2>Branches</h2>
+    <section>
+      <code><strong>git</strong> branch branchName</code>
+      <p>Create a new branch with name <strong>branchName</strong>.</p>
+
+      <code><strong>git</strong> checkout branchName</code>
+      <p>Switch from current branch to <strong>branchName</strong>.</p>
+
+      <code><strong>git</strong> checkout -b branchName</code>
+      <p>Create a new branch, <strong>branchName</strong>, and switch to it.</p>
+
+      <code><strong>git</strong> branch -d branchName</code>
+      <p>Delete branch with name <strong>branchName</strong>.</p>
+
+      <code><strong>git</strong> merge branchName</code>
+      <p>This command replays changes made in <strong>branchName</strong> since it diverged from the current branch into the current branch.</p>
+    </section>
+
+<!-- Remote Branches -->
+    <h2>Remote Branches</h2>
+    <section>
+      <code><strong>git</strong> remote add name url</code>
+      <p>Add remote repository at <strong>url</strong> with <strong>name</strong> for a shortname.</p>
+
+      <code><strong>git</strong> fetch remoteName</code>
+      <p>This command grabs all the repository data from the remote repository. This assumes a remote repository has been added already.</p>
+
+      <code><strong>git</strong> checkout -b localBranch remoteName/remoteBranch</code>
+      <br>
+      <code><strong>git</strong> checkout --track remoteName/remoteBranch</code>
+      <p>Either of these commands creates and switches over to a new local branch and sets it up so it tracks a remote branch. It's probably good if the local and remote branch names are the same.</p>
+
+      <code><strong>git</strong> clone</code>
+      <p>This is essentially a <strong>git init</strong> then <strong>git add remote</strong>, <strong>git fetch</strong> and <strong>git checkout</strong>. It automatically sets up a master branch tracking the remote master brnahc, but doesn't set up any other branches.</p>
+
+      <code><strong>git</strong> pull remoteName localBranch:remoteBranch</code>
+      <p>This command pulls a remote branch into a local branch. A pull is a fetch and then a merge.</p>
+
+      <code><strong>git</strong> push remoteName localBranch:remoteBranch</code>
+      <p>This command pushes a local branch onto a remote branch.</p>
+
+      <code><strong>git</strong> push remoteName :remoteBranch</code>
+      <p>This weird looking command deletes a remote branch on the remote server... really.</p>
+
+      <p>If a local branch is set up to track a remote branch <strong>git push</strong> and <strong>git pull</strong> will work just like that, without specifying remotes and branches.</p>
+    </section>
+
+  </body>
+</html>
+
