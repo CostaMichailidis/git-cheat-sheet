@@ -121,7 +121,10 @@
       <p>Delete branch with name <strong>branchName</strong>.</p>
 
       <code><strong>git</strong> merge branchName</code>
-      <p>This command replays changes made in <strong>branchName</strong> since it diverged from the current branch into the current branch.</p>
+      <p>This command does a three-way merge between the two lastest snapshots of the current branch, <strong>branchName</strong> and the most recent common ancester, and creates a new commit in the current branch.</p>
+
+      <code><strong>git</strong> rebase branchName</code>
+      <p>I don't really know how rebasing works. I think it replays changes from <strong>branchName</strong> onto the current branch.</p>
     </section>
 
 <!-- Remote Branches -->
