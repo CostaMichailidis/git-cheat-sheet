@@ -13,8 +13,8 @@
       min-height: 100%;
     }
     body {
-      max-width: 700px;
-      width: 80%;
+      text-align: center;
+      width: 90%;
       margin: auto;
       margin-top: 50px;
       margin-bottom: 250px;
@@ -22,8 +22,12 @@
       color: #445;
     }
     section {
-      margin: 30px 0 50px 0;
-      padding: 40px;
+      text-align: left;
+      display: inline-block;
+      vertical-align: top;
+      max-width: 400px;
+      margin: 30px;
+      padding: 20px 40px;
       box-shadow: 0 0 4px #aaa;
       border-radius: 5px;
     }
@@ -32,7 +36,6 @@
     }
     h1 {
       font-size: 250%;
-      margin-left: -25px;
       color: #000;
       text-shadow: 1px 1px 1px #aaa;
     }
@@ -55,13 +58,13 @@
   </head>
   <body>
 
-    <h1 class="right">My personal git cheat sheet</h1>
-    <p class="right">There are so many git commands! These are the ones I make use of...</p>
+    <h1 class="center">My personal git cheat sheet</h1>
+    <p class="center">There are so many git commands! These are the ones I make use of...</p>
     <br>
 
 <!-- Basics -->
-    <h2>Basics</h2>
     <section>
+      <h2 class="center">Basics</h2>
       <code><strong>git</strong> init</code>
       <p>This initializes a git repository in the current directory. Hit <strong>ctrl + h</strong> to see the hidden .git folder.</p>
 
@@ -83,8 +86,8 @@
 
 
 <!-- Checking Stuff -->
-    <h2>Checking Stuff</h2>
     <section>
+      <h2 class="center">Checking Stuff</h2>
       <code><strong>git</strong> status</code>
       <p>Reports the status of your git repository, staging area, remote repos, branches and so on.</p>
 
@@ -106,8 +109,8 @@
     </section>
 
 <!-- Branches -->
-    <h2>Branches</h2>
     <section>
+      <h2 class="center">Branches</h2>
       <code><strong>git</strong> branch branchName</code>
       <p>Create a new branch with name <strong>branchName</strong>.</p>
 
@@ -128,8 +131,8 @@
     </section>
 
 <!-- Remote Branches -->
-    <h2>Remote Branches</h2>
     <section>
+      <h2 class="center">Remote Branches</h2>
       <code><strong>git</strong> remote add name url</code>
       <p>Add remote repository at <strong>url</strong> with <strong>name</strong> for a shortname.</p>
 
