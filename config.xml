@@ -7,7 +7,7 @@
   <description>A cheatsheet for common git commands</description>
   <author href="https://build.phonegap.com" email="support@phonegap.com">Hardeep Shoker</author>
 
-  <preference name="orientation" value="default" />
+  <preference name="orientation" value="portrait" />
   <!-- <preference name="fullscreen" value="true" /> Defaults to false-->
   <!-- <preference name="exit-on-suspend" value="true" /> for example when the home button is pressed -->
   <!-- <preference name="splash-screen-duration" value="10000"/> Duration that the splash screen remains visible; defaults to 5000 (ms). For auto-hide behaviour call navigator.splashscreen.hide() in the deviceready callback. -->
