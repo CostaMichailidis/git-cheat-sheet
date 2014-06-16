@@ -58,7 +58,7 @@
     <script type="text/javascript">
       (function () {
         "use strict";
-        document.addEventListener('deviceready', function (event) {
+        window.addEventListener('load', function (event) {
 
           var onSuccess = function(position) {
               alert('Latitude: '          + position.coords.latitude          + '\n' +
