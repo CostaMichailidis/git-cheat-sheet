@@ -161,6 +161,16 @@
       <p>If a local branch is set up to track a remote branch <strong>git push</strong> and <strong>git pull</strong> will work just like that, without specifying remotes and branches.</p>
     </section>
 
+<!-- Stashing -->
+    <section>
+      <h2 class="center">Stashing</h2>
+      <code><strong>git</strong> stash</code>
+      <p>Let's say you've been working for a while, and you have uncommited changes, but you want to go look at something in another branch. Doing <strong>git stash</strong> will save those changes, so you can then go checkout other branches, have a look around, make commits there, etc, and come back.</p>
+
+      <code><strong>git</strong> stash apply</code>
+      <p>This command adds back the changes you saved with <strong>git stash</strong>. It can be used to apply changes to the original place you made them, but also can be used to apply those changes to another branch. Let's say you were working in your production branch, but really should have been working in the development branch. Stash the changes, and apply them in the dev branch.</p>
+    </section>
+
   </body>
 </html>
 
